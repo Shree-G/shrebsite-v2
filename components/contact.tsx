@@ -1,0 +1,165 @@
+'use client'
+
+import { useState } from 'react'
+import { Mail, MessageSquare, Loader } from 'lucide-react'
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }).catch(() => null)
+
+      if (response?.ok) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        window.location.href = `mailto:your-email@example.com?subject=Message from ${formData.name}&body=${formData.message}`
+      }
+    } catch (error) {
+      window.location.href = `mailto:your-email@example.com?subject=Message from ${formData.name}&body=${formData.message}`
+    }
+
+    setIsLoading(false)
+  }
+
+  return (
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Let's Connect
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Have a project in mind? Send me a message or reach out directly.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div className="glass-effect rounded-2xl p-6 border border-accent/10 hover:border-accent/30 transition-colors">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-accent/15 rounded-lg">
+                  <Mail className="text-accent" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Email</h3>
+                  <a href="mailto:your-email@example.com" className="text-accent hover:underline text-sm">
+                    your-email@example.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-effect rounded-2xl p-6 border border-accent/10 hover:border-accent/30 transition-colors">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-secondary/15 rounded-lg">
+                  <MessageSquare className="text-secondary" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Chat</h3>
+                  <p className="text-muted-foreground text-sm">Use the chatbot above to ask questions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="glass-effect rounded-2xl p-8 border border-accent/10">
+            {submitted ? (
+              <div className="text-center py-8">
+                <div className="text-accent mb-4 text-4xl">✓</div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Message Sent!</h3>
+                <p className="text-muted-foreground">Thanks for reaching out. I'll respond soon.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={4}
+                    className="w-full bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all resize-none"
+                    placeholder="Your message..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-accent text-accent-foreground py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader size={18} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
