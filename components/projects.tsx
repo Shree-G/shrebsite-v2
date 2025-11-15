@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
+import { useInView } from '@/hooks/use-in-view'
 
 const projectsData = [
   {
@@ -50,6 +51,7 @@ export default function Projects() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
+  const [ref, isInView] = useInView()
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
@@ -77,89 +79,91 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={ref} id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Selected Work
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Explore my recent AI and full-stack projects
-          </p>
-        </div>
-
-        {/* Scrollable Projects Container */}
-        <div className="relative group">
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-accent-foreground p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft size={24} />
-            </button>
-          )}
-
-          <div
-            ref={scrollContainerRef}
-            onScroll={checkScroll}
-            className="flex gap-6 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scroll-smooth"
-            style={{ scrollBehavior: 'smooth' }}
-          >
-            {projectsData.map((project) => (
-              <div
-                key={project.id}
-                className="flex-shrink-0 w-full md:w-96 snap-start glass-effect rounded-2xl border border-accent/15 p-6 hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-accent/10"
-              >
-                <h3 className="text-xl font-semibold text-foreground mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-lg border border-accent/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 text-foreground rounded-lg transition-colors text-sm font-medium"
-                  >
-                    <Github size={16} />
-                    GitHub
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-accent/20 hover:bg-accent/30 text-accent rounded-lg transition-colors text-sm font-medium"
-                  >
-                    <ExternalLink size={16} />
-                    Live
-                  </a>
-                </div>
-              </div>
-            ))}
+        <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Selected Work
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Explore my recent AI and full-stack projects
+            </p>
           </div>
 
-          {canScrollRight && (
-            <button
-              onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-accent-foreground p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-              aria-label="Scroll right"
+          {/* Scrollable Projects Container */}
+          <div className="relative group">
+            {canScrollLeft && (
+              <button
+                onClick={() => scroll('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-accent-foreground p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft size={24} />
+              </button>
+            )}
+
+            <div
+              ref={scrollContainerRef}
+              onScroll={checkScroll}
+              className="flex gap-6 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scroll-smooth"
+              style={{ scrollBehavior: 'smooth' }}
             >
-              <ChevronRight size={24} />
-            </button>
-          )}
+              {projectsData.map((project) => (
+                <div
+                  key={project.id}
+                  className="flex-shrink-0 w-full md:w-96 snap-start glass-effect rounded-2xl border border-accent/15 p-6 hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-accent/10"
+                >
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-lg border border-accent/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex gap-3">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 text-foreground rounded-lg transition-colors text-sm font-medium"
+                    >
+                      <Github size={16} />
+                      GitHub
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-accent/20 hover:bg-accent/30 text-accent rounded-lg transition-colors text-sm font-medium"
+                    >
+                      <ExternalLink size={16} />
+                      Live
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {canScrollRight && (
+              <button
+                onClick={() => scroll('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-accent text-accent-foreground p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                aria-label="Scroll right"
+              >
+                <ChevronRight size={24} />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>

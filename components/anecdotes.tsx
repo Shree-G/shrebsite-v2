@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { useInView } from '@/hooks/use-in-view'
 
 export default function Anecdotes() {
   const [activeAnecdote, setActiveAnecdote] = useState(0)
+  const [ref, isInView] = useInView()
 
   const anecdotes = [
     {
@@ -27,49 +29,51 @@ export default function Anecdotes() {
   ]
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-4xl mx-auto">
-        <div className="inline-block mb-8">
-          <span className="text-sm font-semibold text-accent tracking-widest uppercase">Stories & Lessons</span>
-        </div>
-        
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-          Real moments that shaped my approach
-        </h2>
-        
-        <p className="text-lg text-muted-foreground mb-12">
-          Engineering is personal. Here are stories that shaped how I think about building AI systems.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-4 mb-12">
-          {anecdotes.map((anecdote, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveAnecdote(idx)}
-              className={`text-left p-6 rounded-xl border transition-all ${
-                activeAnecdote === idx
-                  ? 'glass-effect border-accent/50 bg-accent/5'
-                  : 'border-border hover:border-accent/20 hover:bg-muted/30'
-              }`}
-            >
-              <div className="text-xs font-semibold text-accent mb-2 uppercase tracking-wider">
-                {anecdote.category}
-              </div>
-              <h3 className="font-semibold text-foreground text-lg">{anecdote.title}</h3>
-            </button>
-          ))}
-        </div>
-
-        <div className="glass-effect rounded-2xl p-10 border border-accent/10">
-          <div className="mb-2 text-xs font-semibold text-accent uppercase tracking-wider">
-            {anecdotes[activeAnecdote].category}
+        <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="inline-block mb-8">
+            <span className="text-sm font-semibold text-accent tracking-widest uppercase">Stories & Lessons</span>
           </div>
-          <h3 className="text-2xl font-bold text-foreground mb-4">
-            {anecdotes[activeAnecdote].title}
-          </h3>
-          <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
-            {anecdotes[activeAnecdote].fullStory}
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+            Real moments that shaped my approach
+          </h2>
+          
+          <p className="text-lg text-muted-foreground mb-12">
+            Engineering is personal. Here are stories that shaped how I think about building AI systems.
           </p>
+
+          <div className="grid md:grid-cols-3 gap-4 mb-12">
+            {anecdotes.map((anecdote, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveAnecdote(idx)}
+                className={`text-left p-6 rounded-xl border transition-all ${
+                  activeAnecdote === idx
+                    ? 'glass-effect border-accent/50 bg-accent/5'
+                    : 'border-border hover:border-accent/20 hover:bg-muted/30'
+                }`}
+              >
+                <div className="text-xs font-semibold text-accent mb-2 uppercase tracking-wider">
+                  {anecdote.category}
+                </div>
+                <h3 className="font-semibold text-foreground text-lg">{anecdote.title}</h3>
+              </button>
+            ))}
+          </div>
+
+          <div className="glass-effect rounded-2xl p-10 border border-accent/10">
+            <div className="mb-2 text-xs font-semibold text-accent uppercase tracking-wider">
+              {anecdotes[activeAnecdote].category}
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              {anecdotes[activeAnecdote].title}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+              {anecdotes[activeAnecdote].fullStory}
+            </p>
+          </div>
         </div>
       </div>
     </section>

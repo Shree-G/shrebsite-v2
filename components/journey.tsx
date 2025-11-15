@@ -1,6 +1,10 @@
 'use client'
 
+import { useInView } from '@/hooks/use-in-view'
+
 export default function Journey() {
+  const [ref, isInView] = useInView()
+
   const milestones = [
     {
       year: '2020',
@@ -30,32 +34,38 @@ export default function Journey() {
   ]
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/20">
+    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/20">
       <div className="max-w-4xl mx-auto">
-        <div className="inline-block mb-8">
-          <span className="text-sm font-semibold text-accent tracking-widest uppercase">My Journey</span>
-        </div>
-        
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 leading-tight">
-          A timeline of learning and growth
-        </h2>
+        <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="inline-block mb-8">
+            <span className="text-sm font-semibold text-accent tracking-widest uppercase">My Journey</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 leading-tight">
+            A timeline of learning and growth
+          </h2>
 
-        <div className="space-y-12">
-          {milestones.map((milestone, idx) => (
-            <div key={idx} className="flex gap-8">
-              <div className="flex flex-col items-center">
-                <div className="w-4 h-4 rounded-full bg-accent mt-2 relative z-10"></div>
-                {idx !== milestones.length - 1 && (
-                  <div className="w-1 h-24 bg-gradient-to-b from-accent to-transparent mt-2"></div>
-                )}
+          <div className="space-y-12">
+            {milestones.map((milestone, idx) => (
+              <div 
+                key={idx} 
+                className="flex gap-8"
+                style={{ transitionDelay: `${idx * 100}ms` }}
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-accent mt-2 relative z-10"></div>
+                  {idx !== milestones.length - 1 && (
+                    <div className="w-1 h-24 bg-gradient-to-b from-accent to-transparent mt-2"></div>
+                  )}
+                </div>
+                <div className="pb-8">
+                  <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">{milestone.year}</div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{milestone.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
+                </div>
               </div>
-              <div className="pb-8">
-                <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">{milestone.year}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">{milestone.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

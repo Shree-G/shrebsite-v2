@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Send, Loader } from 'lucide-react'
+import { useInView } from '@/hooks/use-in-view'
 
 export default function Hero() {
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
@@ -15,6 +16,7 @@ export default function Hero() {
   const [chatScale, setChatScale] = useState(0.95)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLDivElement>(null)
+  const [sectionRef, isInView] = useInView()
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -33,7 +35,6 @@ export default function Hero() {
       const distance = Math.abs(rect.top + rect.height / 2 - heroCenter)
       const maxDistance = window.innerHeight
       
-      // Scale from 0.95 at top to 1 at center to 0.95 at bottom
       const scale = Math.max(0.95, 1 - (distance / maxDistance) * 0.05)
       setChatScale(scale)
     }
@@ -80,8 +81,8 @@ export default function Hero() {
 
   return (
     <section 
-      ref={heroRef}
-      className="min-h-screen pt-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative overflow-hidden"
+      ref={sectionRef}
+      className="min-h-screen pt-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative overflow-hidden"
     >
       <div className="absolute top-24 right-8 w-6 h-6 text-accent/40 animate-pulse">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
@@ -97,7 +98,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-5xl mx-auto w-full">
-        <div className="text-center mb-12 fade-in">
+        <div className={`text-center mb-12 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
             I Build 
             <span className="text-transparent bg-gradient-to-r from-accent to-secondary bg-clip-text"> AI Systems</span>
