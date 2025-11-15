@@ -91,10 +91,7 @@ export default function Hero() {
         </svg>
       </div>
       <div className="absolute bottom-32 left-8 w-5 h-5 text-secondary/30 animate-pulse" style={{ animationDelay: '0.5s' }}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
+        
       </div>
 
       <div className="max-w-5xl mx-auto w-full">
