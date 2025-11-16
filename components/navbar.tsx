@@ -8,12 +8,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 w-full bg-background/85 backdrop-blur-md border-b border-border z-50">
+    <nav className="fixed top-0 w-full bg-background/75 backdrop-blur-sm border-b border-border z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-            AI.Dev
+          <Link href="/" className="text-2xl font-bold font-serif text-foreground">
+            Shree 
           </Link>
 
           {/* Desktop Navigation */}
@@ -33,31 +32,31 @@ export default function Navbar() {
           </div>
 
           {/* Quick Access Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 hover:bg-accent/10 rounded-lg transition-colors"
+              className="p-2 hover:text-accent transition-colors"
               aria-label="GitHub"
             >
-              <Github size={20} className="text-accent" />
+              <Github size={20} className="text-foreground" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 hover:bg-accent/10 rounded-lg transition-colors"
+              className="p-2 hover:text-accent transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} className="text-accent" />
+              <Linkedin size={20} className="text-foreground" />
             </a>
             <a
               href="/resume.pdf"
-              className="p-2 hover:bg-accent/10 rounded-lg transition-colors"
+              className="p-2 hover:text-accent transition-colors"
               aria-label="Resume"
             >
-              <FileText size={20} className="text-accent" />
+              <FileText size={20} className="text-foreground" />
             </a>
           </div>
 

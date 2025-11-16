@@ -49,50 +49,42 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-4">
               Let's Connect
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base text-muted-foreground">
               Have a project in mind? Send me a message or reach out directly.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <div className="glass-effect rounded-2xl p-6 border border-accent/10 hover:border-accent/30 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-accent/15 rounded-lg">
-                    <Mail className="text-accent" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Email</h3>
-                    <a href="mailto:your-email@example.com" className="text-accent hover:underline text-sm">
-                      your-email@example.com
-                    </a>
-                  </div>
+              <div className="p-6 border-l-2 border-accent">
+                <div className="flex items-center gap-3 mb-2">
+                  <Mail className="text-accent" size={20} />
+                  <h3 className="font-semibold text-foreground">Email</h3>
                 </div>
+                <a href="mailto:your-email@example.com" className="text-accent hover:underline text-sm">
+                  your-email@example.com
+                </a>
               </div>
 
-              <div className="glass-effect rounded-2xl p-6 border border-accent/10 hover:border-accent/30 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-secondary/15 rounded-lg">
-                    <MessageSquare className="text-secondary" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Chat</h3>
-                    <p className="text-muted-foreground text-sm">Use the chatbot above to ask questions</p>
-                  </div>
+              <div className="p-6 border-l-2 border-border">
+                <div className="flex items-center gap-3 mb-2">
+                  <MessageSquare className="text-foreground/60" size={20} />
+                  <h3 className="font-semibold text-foreground">Chat</h3>
                 </div>
+                <p className="text-muted-foreground text-sm">Use the chatbot to ask questions</p>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="glass-effect rounded-2xl p-8 border border-accent/10">
+            <div className="glass-effect p-8 border border-border">
               {submitted ? (
                 <div className="text-center py-8">
                   <div className="text-accent mb-4 text-4xl">✓</div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Message Sent!</h3>
-                  <p className="text-muted-foreground">Thanks for reaching out. I'll respond soon.</p>
+                  <p className="text-muted-foreground text-sm">Thanks for reaching out.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -107,7 +99,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                      className="w-full bg-input border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all text-sm"
                       placeholder="Your name"
                     />
                   </div>
@@ -123,7 +115,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                      className="w-full bg-input border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all text-sm"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -139,7 +131,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all resize-none"
+                      className="w-full bg-input border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all resize-none text-sm"
                       placeholder="Your message..."
                     />
                   </div>
@@ -147,11 +139,11 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-accent text-accent-foreground py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full bg-accent text-accent-foreground py-2 rounded font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
                   >
                     {isLoading ? (
                       <>
-                        <Loader size={18} className="animate-spin" />
+                        <Loader size={16} className="animate-spin" />
                         Sending...
                       </>
                     ) : (

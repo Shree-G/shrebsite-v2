@@ -24,18 +24,14 @@ export default function ThinkingSpace() {
   ]
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-block mb-8">
-            <span className="text-sm font-semibold text-accent tracking-widest uppercase">Thoughts & Insights</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-            What I'm thinking about
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-8 leading-tight">
+            Thoughts & Insights
           </h2>
           
-          <p className="text-lg text-muted-foreground mb-12">
+          <p className="text-lg text-foreground/80 mb-12 leading-relaxed">
             Ideas, observations, and evolving thoughts on AI engineering and technology.
           </p>
 
@@ -43,13 +39,13 @@ export default function ThinkingSpace() {
             {thoughts.map((thought, idx) => (
               <div
                 key={idx}
-                className="glass-effect rounded-xl p-6 border border-accent/10 hover:border-accent/30 transition-all hover:bg-accent/5 cursor-pointer group"
+                className="glass-effect rounded p-6 border border-border hover:border-accent/30 transition-all cursor-pointer group"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <div className="text-xs font-semibold text-secondary mb-3 uppercase tracking-wider">
+                <div className="text-xs font-semibold text-accent mb-3 uppercase tracking-wider">
                   {thought.date}
                 </div>
-                <h3 className="font-semibold text-foreground mb-3 text-lg group-hover:text-accent transition-colors">
+                <h3 className="font-semibold text-foreground mb-3 text-base group-hover:text-accent transition-colors">
                   {thought.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">

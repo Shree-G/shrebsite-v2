@@ -213,12 +213,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </Link>
 
           <article className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+            <div className="space-y-6 mb-12">
+              <h1 className="text-5xl md:text-6xl font-serif font-bold text-foreground leading-tight">
                 {post.title}
               </h1>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-lg border border-accent/20 font-medium">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground border-b border-border pb-6">
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded border border-accent/20 font-medium">
                   {post.category}
                 </span>
                 <span>{post.date}</span>
@@ -229,11 +229,11 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            <div className="prose-like space-y-6">
+            <div className="prose-like space-y-6 max-w-none">
               {post.content.split('\n\n').map((paragraph, idx) => {
                 if (paragraph.startsWith('##')) {
                   return (
-                    <h2 key={idx} className="text-3xl md:text-4xl font-bold text-foreground mt-12 mb-6 pt-8">
+                    <h2 key={idx} className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-12 mb-6 pt-8">
                       {paragraph.replace('## ', '')}
                     </h2>
                   )
@@ -250,7 +250,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                     <ul key={idx} className="space-y-3 pl-6">
                       {paragraph.split('\n').map((item, i) => (
                         <li key={i} className="text-foreground text-lg leading-relaxed flex gap-3">
-                          <span className="text-accent flex-shrink-0 mt-1">•</span>
+                          <span className="text-accent flex-shrink-0 mt-0.5">•</span>
                           <span>{item.replace('- ', '')}</span>
                         </li>
                       ))}

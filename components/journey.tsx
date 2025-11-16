@@ -34,34 +34,30 @@ export default function Journey() {
   ]
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/20">
+    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-block mb-8">
-            <span className="text-sm font-semibold text-accent tracking-widest uppercase">My Journey</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 leading-tight">
-            A timeline of learning and growth
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-16 leading-tight">
+            A Timeline of Learning
           </h2>
 
           <div className="space-y-12">
             {milestones.map((milestone, idx) => (
               <div 
                 key={idx} 
-                className="flex gap-8"
+                className="flex gap-8 pb-8 border-b border-border last:border-0"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <div className="flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-accent mt-2 relative z-10"></div>
+                <div className="flex flex-col items-center min-w-fit">
+                  <div className="w-3 h-3 rounded-full bg-accent"></div>
                   {idx !== milestones.length - 1 && (
-                    <div className="w-1 h-24 bg-gradient-to-b from-accent to-transparent mt-2"></div>
+                    <div className="w-0.5 h-20 bg-border mt-4"></div>
                   )}
                 </div>
-                <div className="pb-8">
-                  <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">{milestone.year}</div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{milestone.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
+                <div className="pb-0">
+                  <div className="text-xs font-bold text-accent mb-2 uppercase tracking-wider">{milestone.year}</div>
+                  <h3 className="text-lg font-semibold text-foreground mb-1">{milestone.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{milestone.description}</p>
                 </div>
               </div>
             ))}

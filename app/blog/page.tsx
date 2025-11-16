@@ -52,10 +52,10 @@ export default function BlogPage() {
       <div className="pt-16 px-4 sm:px-6 lg:px-8 pb-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-4">
               Articles & Insights
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-lg text-foreground/80">
               Exploring AI engineering, LLMs, and building intelligent systems
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function BlogPage() {
           <div className="space-y-4">
             {blogPosts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`}>
-                <article className="glass-effect rounded-2xl p-6 md:p-8 border border-accent/10 hover:border-accent/30 transition-all group cursor-pointer">
+                <article className="glass-effect rounded p-6 md:p-8 border border-border hover:border-accent/30 transition-all group cursor-pointer">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-1">
                       <h2 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-accent transition-colors mb-3">
@@ -73,7 +73,7 @@ export default function BlogPage() {
                         {post.excerpt}
                       </p>
                       <div className="flex flex-wrap items-center gap-3 text-sm">
-                        <span className="px-3 py-1 bg-accent/10 text-accent rounded-lg border border-accent/20">
+                        <span className="px-3 py-1 bg-accent/10 text-accent rounded border border-accent/20">
                           {post.category}
                         </span>
                         <span className="text-muted-foreground">{post.date}</span>
