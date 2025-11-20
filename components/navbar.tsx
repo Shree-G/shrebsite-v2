@@ -12,12 +12,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-2xl font-bold font-serif text-foreground">
-            Shree 
+            Shree
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
+            <Link href="/#home" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Home
             </Link>
             <Link href="/#projects" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
@@ -76,7 +76,7 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2">
-            <Link href="/" className="block px-4 py-2 text-foreground hover:text-accent">
+            <Link href="/#home" className="block px-4 py-2 text-foreground hover:text-accent">
               Home
             </Link>
             <Link href="/#projects" className="block px-4 py-2 text-foreground hover:text-accent">

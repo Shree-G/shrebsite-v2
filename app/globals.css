@@ -122,6 +122,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply text-foreground;
     /* Subtle gradient that transitions through warm neutrals instead of bright greens */
