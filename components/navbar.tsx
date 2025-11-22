@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Github, Linkedin, FileText, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
 import { useChatStore } from '@/lib/chat-store'
@@ -13,8 +14,16 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full bg-background/75 backdrop-blur-sm border-b border-border z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold font-serif text-foreground">
-            Shree
+          <Link href="/" className="flex items-center gap-2">
+            <div className="relative w-10 h-10 overflow-hidden rounded-full border border-border">
+              <Image
+                src="/prof-photo.JPG"
+                alt="Shree"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -24,9 +33,6 @@ export default function Navbar() {
             </Link>
             <Link href="/#projects" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Projects
-            </Link>
-            <Link href="/blog" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
-              Blog
             </Link>
             <Link href="/#contact" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Contact
@@ -61,16 +67,16 @@ export default function Navbar() {
             >
               <Linkedin size={20} className="text-foreground" />
             </a>
-            <a
+            {/* <a
               href="/resume.pdf"
               className="p-2 hover:text-accent transition-colors"
               aria-label="Resume"
             >
               <FileText size={20} className="text-foreground" />
-            </a>
+            </a> */}
             <button
               onClick={() => {
-                document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+                window.scrollTo({ top: 0, behavior: 'smooth' })
                 open()
               }}
               className="p-2 hover:text-accent transition-colors"
@@ -78,6 +84,9 @@ export default function Navbar() {
             >
               <MessageSquare size={20} className="text-foreground" />
             </button>
+            <Link href="/blog" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
+              Blog
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

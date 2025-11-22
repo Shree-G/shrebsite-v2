@@ -35,7 +35,7 @@ export default function Journey() {
 
   return (
     <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-16 leading-tight">
             A Timeline of Learning

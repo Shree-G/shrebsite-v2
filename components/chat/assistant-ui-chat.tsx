@@ -1,11 +1,16 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 import {
     AssistantRuntimeProvider,
     ThreadPrimitive,
     ComposerPrimitive,
     MessagePrimitive,
+    useThread,
+    useComposerRuntime,
 } from '@assistant-ui/react';
+import { useChatStore } from '@/lib/chat-store';
 import { useChatRuntime } from './chat-runtime';
 import { MarkdownTextPrimitive } from '@assistant-ui/react-markdown';
 import { Send, Loader, User, Bot } from 'lucide-react';
@@ -24,6 +29,7 @@ export function AssistantUiChat() {
             <div className="h-full w-full flex flex-col overflow-hidden">
                 <ThreadPrimitive.Root className="flex-1 flex flex-col h-full overflow-hidden">
                     <ThreadPrimitive.Viewport className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth">
+
                         <ThreadPrimitive.Messages
                             components={{
                                 Message: MyMessage,
@@ -32,6 +38,7 @@ export function AssistantUiChat() {
                     </ThreadPrimitive.Viewport>
 
                     <div className="p-4">
+                        <SuggestedQuestions />
                         <ComposerPrimitive.Root className="flex gap-2 w-full">
                             <ComposerPrimitive.Input
                                 placeholder="Ask me anything..."
@@ -48,34 +55,74 @@ export function AssistantUiChat() {
     );
 }
 
-const MyMessage = () => {
+function SuggestedQuestions() {
+    const { messages } = useThread();
+    const composer = useComposerRuntime();
+    const { open } = useChatStore();
+
+    if (messages.some(m => m.role === 'user')) return null;
+
+    const questions = [
+        "Tell me about Shree's work experiences.",
+        "Tell me about the projects Shree has worked on.",
+        "Tell me about Shree's skills."
+    ];
+
     return (
-        <MessagePrimitive.Root className="flex w-full mb-4">
-            <MessagePrimitive.If user>
-                <div className="flex w-full justify-end">
-                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tr-none bg-accent text-accent-foreground text-sm shadow-sm">
-                        <MessagePrimitive.Content />
-                    </div>
-                </div>
-            </MessagePrimitive.If>
-            <MessagePrimitive.If assistant>
-                <div className="flex w-full justify-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
-                        <Bot size={16} className="text-primary" />
-                    </div>
-                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-none bg-muted/50 text-foreground text-sm border border-border/50 shadow-sm">
-                        <MessagePrimitive.Content components={{ Text: MarkdownText }} />
-                    </div>
-                </div>
-            </MessagePrimitive.If>
-        </MessagePrimitive.Root>
+        <div className="flex flex-col gap-2 mt-auto mb-4 ">
+            {questions.map((q, i) => (
+                <button
+                    key={i}
+                    onClick={() => {
+                        composer.setText(q);
+                        composer.send();
+                        open();
+                    }}
+                    className="text-left p-3 rounded-3xl border border-border/50 bg-muted/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-200 text-sm text-foreground/80 hover:text-accent shadow-sm hover:shadow-md"
+                >
+                    {q}
+                </button>
+            ))}
+        </div>
     );
-};
+}
+
+
+function LoadingAnimation() {
+    const [phrase] = useState(() => {
+        const phrases = [
+            "Reading Shree's Mind",
+            "Picking Shree's Brain",
+            "Looking into Shree's Past",
+            "Understanding Shree's Lore"
+        ];
+        return phrases[Math.floor(Math.random() * phrases.length)];
+    });
+
+    return (
+        <div className="flex">
+            {phrase.split('').map((char, i) => (
+                <span
+                    key={i}
+                    className="inline-block animate-pulse-letter"
+                    style={{
+                        animationDelay: `${i * 0.1}s`,
+                        opacity: char === ' ' ? 0 : 1
+                    }}
+                >
+                    {char === ' ' ? '\u00A0' : char}
+                </span>
+            ))}
+        </div>
+    );
+}
 
 import ReactMarkdown from 'react-markdown';
 
-const MarkdownText = ({ text }: { text?: string }) => {
-    if (!text) return null;
+const MarkdownTextWithLoading = ({ text }: { text?: string }) => {
+    if (!text || text.trim() === '') {
+        return <LoadingAnimation />;
+    }
 
     return (
         <div className="prose prose-sm dark:prose-invert max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">
@@ -108,5 +155,29 @@ const MarkdownText = ({ text }: { text?: string }) => {
                 {text}
             </ReactMarkdown>
         </div>
+    );
+};
+
+const MyMessage = () => {
+    return (
+        <MessagePrimitive.Root className="flex w-full mb-4">
+            <MessagePrimitive.If user>
+                <div className="flex w-full justify-end">
+                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tr-none bg-accent text-accent-foreground text-sm shadow-sm">
+                        <MessagePrimitive.Content />
+                    </div>
+                </div>
+            </MessagePrimitive.If>
+            <MessagePrimitive.If assistant>
+                <div className="flex w-full justify-start gap-3">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                        <Bot size={16} className="text-primary" />
+                    </div>
+                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-none bg-muted/50 text-foreground text-sm border border-border/50 shadow-sm">
+                        <MessagePrimitive.Content components={{ Text: MarkdownTextWithLoading }} />
+                    </div>
+                </div>
+            </MessagePrimitive.If>
+        </MessagePrimitive.Root>
     );
 };

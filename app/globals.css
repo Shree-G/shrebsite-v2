@@ -122,19 +122,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply text-foreground;
     /* Subtle gradient that transitions through warm neutrals instead of bright greens */
-    background: linear-gradient(
-      135deg,
-      oklch(0.965 0.005 70),
-      oklch(0.96 0.008 65),
-      oklch(0.955 0.010 80),
-      oklch(0.965 0.005 70)
-    );
+    background: linear-gradient(135deg,
+        oklch(0.965 0.005 70),
+        oklch(0.96 0.008 65),
+        oklch(0.955 0.010 80),
+        oklch(0.965 0.005 70));
     background-size: 400% 400%;
     animation: gradientShift 20s ease-in-out infinite;
     position: relative;
@@ -147,9 +147,11 @@
     0% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
+
     100% {
       background-position: 0% 50%;
     }
@@ -160,6 +162,7 @@
       opacity: 0;
       transform: translateY(4px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -183,6 +186,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -190,5 +194,21 @@
 
   .scroll-smooth {
     scroll-behavior: smooth;
+  }
+
+  @keyframes pulseLetter {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  .animate-pulse-letter {
+    animation: pulseLetter 1.5s ease-in-out infinite;
   }
 }

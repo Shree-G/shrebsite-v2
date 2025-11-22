@@ -20,7 +20,7 @@ export default function BlogPage() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-16 px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-4">
               Articles & Insights

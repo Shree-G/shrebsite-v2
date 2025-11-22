@@ -30,7 +30,7 @@ export default function Anecdotes() {
 
   return (
     <section ref={ref} className="px-4 sm:px-6 bg-background lg:px-0 py-0">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="inline-block mb-8">
             <span className="text-sm font-semibold text-accent tracking-widest uppercase">Stories & Lessons</span>
@@ -50,8 +50,8 @@ export default function Anecdotes() {
                 key={idx}
                 onClick={() => setActiveAnecdote(idx)}
                 className={`text-left p-6 border transition-all rounded ${activeAnecdote === idx
-                    ? 'border-accent/50 bg-accent/5'
-                    : 'border-border hover:border-accent/30'
+                  ? 'border-accent/50 bg-accent/5'
+                  : 'border-border hover:border-accent/30'
                   }`}
               >
                 <div className="text-xs font-semibold text-accent mb-2 uppercase tracking-wider">

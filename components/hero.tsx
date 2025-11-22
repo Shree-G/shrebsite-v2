@@ -32,7 +32,7 @@ export default function Hero() {
         ref={sectionRef}
         className="w-full py-20 md:py-0"
       >
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Column: Bio & Info */}
             <div className={`flex flex-col items-start space-y-8 transition-all duration-700 delay-100 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
@@ -76,7 +76,7 @@ export default function Hero() {
                 layout
                 className={`bg-background border border-border shadow-2xl overflow-hidden ${isOpen
                   ? 'fixed inset-4 z-50 rounded-xl md:inset-10'
-                  : 'relative w-full max-w-[400px] h-full rounded-xl cursor-pointer hover:shadow-xl transition-shadow'
+                  : 'relative w-full max-w-[500px] h-full rounded-xl cursor-pointer hover:shadow-xl transition-shadow'
                   }`}
                 onClick={() => !isOpen && open()}
                 initial={false}
@@ -99,7 +99,7 @@ export default function Hero() {
                   )}
                 </AnimatePresence>
 
-                <div className={`w-full h-full ${!isOpen && 'pointer-events-none'}`}>
+                <div className="w-full h-full">
                   <AssistantUiChat />
                 </div>
               </motion.div>
