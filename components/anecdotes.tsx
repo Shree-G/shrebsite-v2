@@ -9,22 +9,22 @@ export default function Anecdotes() {
 
   const anecdotes = [
     {
-      title: 'The 3AM Breakthrough',
-      category: 'Engineering',
-      excerpt: 'I spent weeks optimizing a RAG pipeline before realizing the bottleneck wasn\'t algorithmic—it was architectural.',
-      fullStory: 'I was working on a retrieval system for a research platform when I hit a wall. The retrieval latency was unacceptable. I started down the path of complex indexing optimizations, vector compression, everything. At 3AM (yes, really), I realized I was searching across the wrong documents entirely. The problem wasn\'t the retrieval speed—it was the data organization. After restructuring the knowledge base, response times dropped 10x. It taught me that understanding the problem is more important than optimizing the solution.'
+      title: 'Tech Obsession',
+      category: 'Origin Story',
+      excerpt: 'It started with YouTube channels like MKBHD and Linus Tech Tips. I memorized every smartphone spec for 5 years.',
+      fullStory: 'I think this all started with me being addicted to youtube channels like Marques Brownlee, Dave2D, Linus Tech Tips and others. I learnt so much about consumer technology that I knew all of the features every smartphone and laptop that came out had for a period of 4-5 years. I still remember coming back home from school and being so excited to watch the youtube livestream of the iPhone 6 launch. My first phone was an LG V20 with a cool secondary screen on top that would show you live activities. (They did dynamic islands before it was cool. Rest peacefully my love LG.)'
     },
     {
-      title: 'When the Model Surprised Me',
-      category: 'AI/ML',
-      excerpt: 'Fine-tuning a model on domain-specific data, I discovered it had learned patterns I never explicitly taught.',
-      fullStory: 'While fine-tuning a model for technical documentation, something unexpected happened. The model started generating not just accurate answers, but helpful context I never trained it to provide. It had learned to recognize when users needed background information. This moment shifted how I think about AI systems—they don\'t just follow instructions, they learn underlying patterns. It\'s a reminder to build with curiosity and remain open to what the system teaches you.'
+      title: 'The "Aha" Moment',
+      category: 'Impact',
+      excerpt: 'Helping my grandparents send emails made me realize I could use my nerdy knowledge to help people.',
+      fullStory: 'Things changed when I realized I could use this nerdy knowledge to help people streamline processes they didn\'t know they could. It was small things like helping my grandparents send emails, or being the point person that family members asked when they had to buy a new device. But that feeling felt addictive, I loved being able to help people with the knowledge I had about the things I loved.'
     },
     {
-      title: 'Deploying to Production',
-      category: 'Lessons',
-      excerpt: 'Building in isolation is comfortable. Deploying at scale is humbling. My first production system taught me more than months of development.',
-      fullStory: 'The first AI system I deployed to real users was terrifying. I thought I\'d tested everything. I hadn\'t. Real-world data is messier, user patterns are weirder, and edge cases are everywhere. That experience forced me to build more robust systems, implement better monitoring, and stay humble about what I don\'t know. Every deployment since has been an exercise in empathy—building for the user who will find the edge case.'
+      title: 'Volunteering',
+      category: 'Service',
+      excerpt: 'Teaching tech literacy at a rehabilitation center taught me to take things back to the very basics.',
+      fullStory: 'Eventually, it turned into volunteering at the local rehabilitation center for recently unhoused people to teach them tech literacy. I expected most of these people to not know how to use advanced tools like Excel or Google Docs, but I soon realized that I neded to take things back to the very basics - starting with basic computer and phone literacy. Most of all, it was heartbreaking how many of these people didn\'t know how many resources they had access to from just their smart phone.'
     }
   ]
 
@@ -35,11 +35,11 @@ export default function Anecdotes() {
           <div className="inline-block mb-8">
             <span className="text-sm font-semibold text-accent tracking-widest uppercase">Stories & Lessons</span>
           </div>
-          
+
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-8 leading-tight">
             Real moments that shaped my approach
           </h2>
-          
+
           <p className="text-lg text-foreground/80 mb-12 leading-relaxed">
             Engineering is personal. Here are stories that shaped how I think about building AI systems.
           </p>
@@ -49,11 +49,10 @@ export default function Anecdotes() {
               <button
                 key={idx}
                 onClick={() => setActiveAnecdote(idx)}
-                className={`text-left p-6 border transition-all rounded ${
-                  activeAnecdote === idx
+                className={`text-left p-6 border transition-all rounded ${activeAnecdote === idx
                     ? 'border-accent/50 bg-accent/5'
                     : 'border-border hover:border-accent/30'
-                }`}
+                  }`}
               >
                 <div className="text-xs font-semibold text-accent mb-2 uppercase tracking-wider">
                   {anecdote.category}

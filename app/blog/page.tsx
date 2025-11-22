@@ -5,43 +5,13 @@ import Link from 'next/link'
 const blogPosts = [
   {
     id: 1,
-    title: 'Building Effective RAG Systems in Production',
-    excerpt: 'Learn best practices for building retrieval-augmented generation systems that scale and perform reliably in production environments.',
-    date: 'November 15, 2024',
-    author: 'AI Engineer',
-    readTime: '8 min read',
-    category: 'AI/ML',
-    slug: 'building-effective-rag-systems'
-  },
-  {
-    id: 2,
-    title: 'LLM Fine-tuning: From Theory to Practice',
-    excerpt: 'A comprehensive guide to fine-tuning large language models on custom datasets, including practical tips and common pitfalls.',
-    date: 'November 10, 2024',
-    author: 'AI Engineer',
-    readTime: '12 min read',
-    category: 'AI/ML',
-    slug: 'llm-fine-tuning-guide'
-  },
-  {
-    id: 3,
-    title: 'Vector Databases and Semantic Search',
-    excerpt: 'Understanding vector embeddings, similarity search, and how to optimize your vector database for production use cases.',
-    date: 'November 5, 2024',
-    author: 'AI Engineer',
-    readTime: '10 min read',
-    category: 'AI/ML',
-    slug: 'vector-databases-guide'
-  },
-  {
-    id: 4,
-    title: 'Prompt Engineering Techniques That Work',
-    excerpt: 'Practical prompt engineering strategies to get better results from language models, with real-world examples.',
-    date: 'October 28, 2024',
-    author: 'AI Engineer',
-    readTime: '7 min read',
-    category: 'AI/ML',
-    slug: 'prompt-engineering-techniques'
+    title: 'Welcome to My Personal Website',
+    excerpt: 'A look into why I built this site, my philosophy on technology, and what you can expect to find here.',
+    date: 'November 21, 2024',
+    author: 'Shree Gopalakrishnan',
+    readTime: '2 min read',
+    category: 'Personal',
+    slug: 'welcome-to-my-site'
   }
 ]
 

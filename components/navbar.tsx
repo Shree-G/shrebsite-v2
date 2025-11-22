@@ -1,11 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { Github, Linkedin, FileText } from 'lucide-react'
+import { Github, Linkedin, FileText, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
+import { useChatStore } from '@/lib/chat-store'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const { open } = useChatStore()
 
   return (
     <nav className="fixed top-0 w-full bg-background/75 backdrop-blur-sm border-b border-border z-50">
@@ -17,7 +19,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/#home" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
+            <Link href="/" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Home
             </Link>
             <Link href="/#projects" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
@@ -29,12 +31,20 @@ export default function Navbar() {
             <Link href="/#contact" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Contact
             </Link>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium hover:text-accent transition-colors"
+            >
+              Resume
+            </a>
           </div>
 
           {/* Quick Access Buttons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/Shree-G"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 hover:text-accent transition-colors"
@@ -43,7 +53,7 @@ export default function Navbar() {
               <Github size={20} className="text-foreground" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shree-gk"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 hover:text-accent transition-colors"
@@ -58,6 +68,16 @@ export default function Navbar() {
             >
               <FileText size={20} className="text-foreground" />
             </a>
+            <button
+              onClick={() => {
+                document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+                open()
+              }}
+              className="p-2 hover:text-accent transition-colors"
+              aria-label="Chat"
+            >
+              <MessageSquare size={20} className="text-foreground" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}

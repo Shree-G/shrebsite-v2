@@ -8,28 +8,28 @@ export default function Journey() {
   const milestones = [
     {
       year: '2020',
-      title: 'First AI Project',
-      description: 'Started exploring ML fundamentals and built my first classifier. Learned that most of ML is data preparation.'
-    },
-    {
-      year: '2021',
-      title: 'RAG Discovery',
-      description: 'Discovered retrieval-augmented generation and realized how to make LLMs actually useful for specific domains.'
+      title: 'Started at UCSD',
+      description: 'Began my journey at the University of California, San Diego, majoring in Computer Science. Started exploring ML fundamentals.'
     },
     {
       year: '2022',
-      title: 'Production Deployment',
-      description: 'Deployed first LLM-powered application to production. Learned about latency, cost, and the gap between research and practice.'
+      title: 'Software Engineering Intern',
+      description: 'Gained industry experience building production-grade applications and learning about the gap between research and practice.'
     },
     {
       year: '2023',
-      title: 'Fine-tuning Mastery',
-      description: 'Developed expertise in fine-tuning techniques, learning when and how to adapt models for specific use cases.'
+      title: 'Machine Learning Intern',
+      description: 'Deepened expertise in fine-tuning techniques and RAG systems, working on real-world AI challenges.'
     },
     {
       year: '2024',
-      title: 'Full-Stack AI Engineering',
-      description: 'Now building end-to-end AI systems from data pipeline to deployment, focusing on production-grade reliability.'
+      title: 'Graduated from UCSD',
+      description: 'Earned my Bachelor\'s degree in Computer Science, capping off 4 years of intense learning and building.'
+    },
+    {
+      year: '2024 - Present',
+      title: 'Full Stack Engineer @ iFrog',
+      description: 'Joined iFrog Marketing Solutions as a Full Stack Software Engineer, building end-to-end AI systems and web applications.'
     }
   ]
 
@@ -43,8 +43,8 @@ export default function Journey() {
 
           <div className="space-y-12">
             {milestones.map((milestone, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="flex gap-8 pb-8 border-b border-border last:border-0"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >

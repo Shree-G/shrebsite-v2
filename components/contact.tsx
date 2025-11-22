@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { Mail, MessageSquare, Loader } from 'lucide-react'
 import { useInView } from '@/hooks/use-in-view'
+import { useChatStore } from '@/lib/chat-store'
 
 export default function Contact() {
+  const { open } = useChatStore()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,10 +71,16 @@ export default function Contact() {
                 </a>
               </div>
 
-              <div className="p-6 border-l-2 border-border">
+              <div
+                className="p-6 border-l-2 border-border cursor-pointer hover:bg-accent/5 transition-colors group"
+                onClick={() => {
+                  document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+                  open()
+                }}
+              >
                 <div className="flex items-center gap-3 mb-2">
-                  <MessageSquare className="text-foreground/60" size={20} />
-                  <h3 className="font-semibold text-foreground">Chat</h3>
+                  <MessageSquare className="text-foreground/60 group-hover:text-accent transition-colors" size={20} />
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">Chat</h3>
                 </div>
                 <p className="text-muted-foreground text-sm">Use the chatbot to ask questions</p>
               </div>

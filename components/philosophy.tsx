@@ -13,28 +13,28 @@ export default function Philosophy() {
             <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-8 leading-tight">
               My Philosophy
             </h2>
-            
+
             <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
-              I believe the future of AI isn't just about building bigger models or more data—it's about building systems that understand nuance, context, and human intent. Every system I build is designed with intentionality and precision.
+              I love deeply understanding a system to the extent where I understand how every single piece fits together. But if there's one thing I really want to devote my life to, it's to help disadvantaged people solve problems with technology.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               {[
                 {
-                  title: 'Intentional Design',
-                  description: 'AI should amplify human capability, not replace human judgment.'
+                  title: 'Problem Solving',
+                  description: 'I love solving challenging problems or cracking difficult bugs and understanding exactly why the bug actually took place.'
                 },
                 {
-                  title: 'Transparent Systems',
-                  description: 'Explainability matters. I build systems where decisions are understood, not just made.'
+                  title: 'Efficiency',
+                  description: 'I love building systems that streamline and make processes efficient.'
                 },
                 {
-                  title: 'Continuous Learning',
-                  description: 'The field evolves daily. I experiment, fail, and learn from each iteration.'
+                  title: 'Impact',
+                  description: 'I want to use my skills to create products that actively help people, whether through entrepreneurship or impactful roles.'
                 }
               ].map((principle, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className={`p-8 border-b border-border pb-8 transition-all delay-${idx * 100}`}
                   style={{ transitionDelay: `${idx * 100}ms` }}
                 >
@@ -47,10 +47,10 @@ export default function Philosophy() {
 
           <div className="border-l-2 border-accent pl-8 py-6 my-20">
             <p className="text-2xl font-serif text-foreground italic leading-relaxed">
-              "The best algorithms are the ones that know their limitations."
+              "I realized I could use this nerdy knowledge to help people streamline processes they didn't know they could."
             </p>
             <footer className="text-muted-foreground text-sm mt-4">
-              — A lesson learned in production
+              — Shree Gopalakrishnan
             </footer>
           </div>
         </div>

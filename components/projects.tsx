@@ -7,43 +7,67 @@ import { useInView } from '@/hooks/use-in-view'
 const projectsData = [
   {
     id: 1,
-    title: 'Intelligent Document Retriever',
-    description: 'RAG system for enterprise document analysis with semantic search',
-    tags: ['Python', 'LangChain', 'Pinecone', 'FastAPI'],
-    github: 'https://github.com',
-    live: 'https://example.com'
+    title: 'Personal RAG Chatbot',
+    description: 'Full-stack conversational AI chatbot built from scratch using RAG to answer questions about my experience.',
+    tags: ['Python', 'Next.js', 'LangChain', 'FastAPI', 'ChromaDB'],
+    github: 'https://github.com/Shree-G/shrag',
+    live: 'https://shrebsite-v2.vercel.app'
   },
   {
     id: 2,
-    title: 'LLM Fine-tuning Pipeline',
-    description: 'Automated pipeline for fine-tuning open-source LLMs on custom datasets',
-    tags: ['PyTorch', 'Transformers', 'Hugging Face', 'AWS'],
-    github: 'https://github.com',
-    live: 'https://example.com'
+    title: 'Shrocial Media',
+    description: 'Full-stack social media app with real-time feed, secure auth, and mobile-first design.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'WebSockets'],
+    github: 'https://github.com/Shree-G/shrocial_media',
+    live: 'https://shrocial-media.vercel.app/'
   },
   {
     id: 3,
-    title: 'Real-time Chat Analytics',
-    description: 'Dashboard for analyzing conversation patterns and sentiment',
-    tags: ['React', 'Node.js', 'WebSocket', 'PostgreSQL'],
-    github: 'https://github.com',
-    live: 'https://example.com'
+    title: 'Restaurant Ordering System',
+    description: 'Real-time order accuracy system using Raspberry Pi and custom hardware. Won 2nd place in UCSD MVP competition.',
+    tags: ['IoT', 'Raspberry Pi', 'React', 'Hardware', 'Real-time'],
+    github: 'https://docs.google.com/presentation/d/1-sTj9QGiLtZRVMBctdWr9pBKAUZ4Sr2-bYvnh19LB0g/edit',
+    live: 'https://docs.google.com/presentation/d/1-sTj9QGiLtZRVMBctdWr9pBKAUZ4Sr2-bYvnh19LB0g/edit'
   },
   {
     id: 4,
-    title: 'AI-Powered Code Review',
-    description: 'Automated code review assistant using GPT-4 with context awareness',
-    tags: ['Python', 'GitHub API', 'OpenAI', 'Flask'],
-    github: 'https://github.com',
-    live: 'https://example.com'
+    title: "Shree's Pokédex",
+    description: 'Responsive web app to browse and search Pokémon data using the PokeAPI.',
+    tags: ['React', 'Vite', 'JavaScript', 'CSS3', 'REST API'],
+    github: 'https://github.com/Shree-G/pokedex',
+    live: 'https://shreespokedex.netlify.app/'
   },
   {
     id: 5,
-    title: 'Vector Database Optimizer',
-    description: 'Tool for optimizing vector embeddings and improving search performance',
-    tags: ['Python', 'NumPy', 'Faiss', 'Scikit-learn'],
-    github: 'https://github.com',
-    live: 'https://example.com'
+    title: 'Social Compass App',
+    description: 'Android app to track friends\' location and orientation with built-in messaging.',
+    tags: ['Android', 'Java', 'SQL', 'Agile', 'Design Patterns'],
+    github: 'https://github.com/CSE-110-Winter-2023/cse-110-project-cse110-team-16/tree/main',
+    live: 'https://github.com/CSE-110-Winter-2023/cse-110-project-cse110-team-16/tree/main'
+  },
+  {
+    id: 6,
+    title: 'Lambertian Photometric Stereo',
+    description: 'ML project implementing photometric stereo to estimate surface normals and albedo.',
+    tags: ['Python', 'NumPy', 'Computer Vision', 'Linear Algebra'],
+    github: 'https://github.com/Shree-G/Lambertian-Photometric-Stereo',
+    live: 'https://github.com/Shree-G/Lambertian-Photometric-Stereo'
+  },
+  {
+    id: 7,
+    title: '3D Image Rendering',
+    description: 'Rendering 3D images using Lambertian Reflectance Model and convolution operations.',
+    tags: ['Python', 'SciPy', 'Computer Vision', '3D Rendering'],
+    github: 'https://github.com/Shree-G/3D-Image-Rendering',
+    live: 'https://github.com/Shree-G/3D-Image-Rendering'
+  },
+  {
+    id: 8,
+    title: 'Image Classification (BoW)',
+    description: 'Image classification using Bag of Words model, SIFT features, and KMeans clustering.',
+    tags: ['Python', 'OpenCV', 'Scikit-learn', 'Machine Learning'],
+    github: 'https://github.com/Shree-G/Image-Classification-using-Bag-of-Words',
+    live: 'https://github.com/Shree-G/Image-Classification-using-Bag-of-Words'
   }
 ]
 
@@ -80,7 +104,7 @@ export default function Projects() {
 
   return (
     <section ref={ref} id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-12">
             <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-4">

@@ -72,10 +72,41 @@ const MyMessage = () => {
     );
 };
 
-const MarkdownText = () => {
+import ReactMarkdown from 'react-markdown';
+
+const MarkdownText = ({ text }: { text?: string }) => {
+    if (!text) return null;
+
     return (
-        <MarkdownTextPrimitive
-            className="prose prose-sm dark:prose-invert max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0"
-        />
+        <div className="prose prose-sm dark:prose-invert max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">
+            <ReactMarkdown
+                components={{
+                    h1: ({ node, ...props }) => <h1 className="text-xl font-bold mt-4 mb-2" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="text-lg font-bold mt-3 mb-2" {...props} />,
+                    h3: ({ node, ...props }) => <h3 className="text-base font-semibold mt-2 mb-1" {...props} />,
+                    p: ({ node, ...props }) => <p className="mb-2 last:mb-0 leading-relaxed" {...props} />,
+                    ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-2 ml-2" {...props} />,
+                    ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-2 ml-2" {...props} />,
+                    li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+                    a: ({ node, ...props }) => <a className="text-primary underline underline-offset-2" {...props} />,
+                    code: ({ node, className, children, ...props }) => {
+                        const match = /language-(\w+)/.exec(className || '')
+                        return match ? (
+                            <div className="rounded-md bg-muted p-2 my-2 overflow-x-auto">
+                                <code className={className} {...props}>
+                                    {children}
+                                </code>
+                            </div>
+                        ) : (
+                            <code className="bg-muted px-1 py-0.5 rounded text-xs font-mono" {...props}>
+                                {children}
+                            </code>
+                        )
+                    }
+                }}
+            >
+                {text}
+            </ReactMarkdown>
+        </div>
     );
 };
