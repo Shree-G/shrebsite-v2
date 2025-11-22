@@ -89,7 +89,7 @@ export default function Footer() {
                 <Linkedin size={18} className="text-foreground" />
               </a>
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:shree.hridai@gmail.com"
                 className="p-2 hover:text-accent transition-colors"
                 aria-label="Email"
               >
@@ -101,7 +101,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {currentYear} Shree Gopalakrishnan. All rights reserved.</p>
-          <p className="mt-4 md:mt-0">Designed & Built • Hosted on Vercel</p>
+          <p className="mt-4 md:mt-0">Website Hosted on Vercel | Chatbot Deployed on HuggingFace</p>
         </div>
       </div>
     </footer>

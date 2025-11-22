@@ -30,8 +30,8 @@ export default function Contact() {
                   <Mail className="text-accent" size={20} />
                   <h3 className="font-semibold text-foreground">Email</h3>
                 </div>
-                <a href="mailto:your-email@example.com" className="text-accent hover:underline text-sm">
-                  your-email@example.com
+                <a href="mailto:shree.hridai@gmail.com" className="text-accent hover:underline text-sm">
+                  shree.hridai@gmail.com
                 </a>
               </div>
 
