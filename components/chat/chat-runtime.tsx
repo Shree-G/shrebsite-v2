@@ -39,20 +39,6 @@ export const useChatRuntime = () => {
 
                     const chunk = decoder.decode(value, { stream: true });
 
-                    // Simple heuristic for JSON vs Stream
-                    // If the backend sends a single JSON object, we parse it.
-                    // If it sends a stream of text, we append it.
-                    // Since we are building the string, we can try to parse it if it looks like JSON at the end?
-                    // Actually, for streaming, we usually just yield the chunk.
-                    // But if the backend returns JSON { answer: "..." }, we need to handle that.
-
-                    // Let's try to detect if the accumulated text is valid JSON ONLY if it's the first chunk(s) and we haven't yielded yet?
-                    // Or just assume the backend is updated to stream text as per my plan.
-                    // My plan updated the backend to pipe `resp.body` if it's from another backend, 
-                    // OR return a stream.
-                    // If the upstream backend returns JSON, my proxy pipes it.
-                    // So we might receive `{"answer": "..."}` as a stream.
-
                     fullText += chunk;
 
                     // Check if we have a JSON object
@@ -86,7 +72,7 @@ export const useChatRuntime = () => {
                     content: [
                         {
                             type: 'text',
-                            text: "Hi! I'm Shree's AI assistant. Ask me about my experience, projects, or background. What would you like to know?",
+                            text: "Hi! I'm Shree's AI assistant. Ask me about Shree's experience, projects, or background. What would you like to know?",
                         },
                     ],
                 },

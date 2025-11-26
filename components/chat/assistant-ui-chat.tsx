@@ -42,9 +42,9 @@ export function AssistantUiChat() {
                         <ComposerPrimitive.Root className="flex gap-2 w-full">
                             <ComposerPrimitive.Input
                                 placeholder="Ask me anything..."
-                                className="flex-1 bg-input border border-border rounded px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 text-foreground placeholder-muted-foreground transition-all resize-none h-12 max-h-32"
+                                className="flex-1 bg-input border border-border rounded px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f4f3ef]/50 text-foreground placeholder-muted-foreground transition-all resize-none h-12 max-h-32"
                             />
-                            <ComposerPrimitive.Send className="bg-accent text-accent-foreground p-3 rounded hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center h-12 w-12">
+                            <ComposerPrimitive.Send className="bg-[#f4f3ef] text-black p-3 rounded hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center h-12 w-12">
                                 <Send size={20} />
                             </ComposerPrimitive.Send>
                         </ComposerPrimitive.Root>
@@ -78,7 +78,7 @@ function SuggestedQuestions() {
                         composer.send();
                         open();
                     }}
-                    className="text-left p-3 rounded-3xl border border-border/50 bg-muted/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-200 text-sm text-foreground/80 hover:text-accent shadow-sm hover:shadow-md"
+                    className="text-left p-3 rounded-3xl border border-border/50 bg-[#d1e9d9] hover:bg-[#f4f3ef]/90 hover:border-[#f4f3ef] transition-all duration-200 text-sm text-black shadow-sm hover:shadow-md"
                 >
                     {q}
                 </button>
@@ -163,7 +163,7 @@ const MyMessage = () => {
         <MessagePrimitive.Root className="flex w-full mb-4">
             <MessagePrimitive.If user>
                 <div className="flex w-full justify-end">
-                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tr-none bg-accent text-accent-foreground text-sm shadow-sm">
+                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tr-none bg-[#d1e9d9] text-black text-sm shadow-sm">
                         <MessagePrimitive.Content />
                     </div>
                 </div>
@@ -173,7 +173,7 @@ const MyMessage = () => {
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
                         <Bot size={16} className="text-primary" />
                     </div>
-                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-none bg-muted/50 text-foreground text-sm border border-border/50 shadow-sm">
+                    <div className="max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-none bg-[#f4f3ef] text-black text-sm border border-border/50 shadow-sm">
                         <MessagePrimitive.Content components={{ Text: MarkdownTextWithLoading }} />
                     </div>
                 </div>

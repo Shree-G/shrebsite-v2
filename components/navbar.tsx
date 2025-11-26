@@ -67,23 +67,6 @@ export default function Navbar() {
             >
               <Linkedin size={20} className="text-foreground" />
             </a>
-            {/* <a
-              href="/resume.pdf"
-              className="p-2 hover:text-accent transition-colors"
-              aria-label="Resume"
-            >
-              <FileText size={20} className="text-foreground" />
-            </a> */}
-            <button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-                open()
-              }}
-              className="p-2 hover:text-accent transition-colors"
-              aria-label="Chat"
-            >
-              <MessageSquare size={20} className="text-foreground" />
-            </button>
             <Link href="/blog" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Blog
             </Link>

@@ -38,6 +38,15 @@
   --sidebar-accent-foreground: oklch(0.28 0.008 260);
   --sidebar-border: oklch(0.90 0.005 70);
   --sidebar-ring: oklch(0.50 0.05 35);
+
+  /* Theme colors - Cream, Green, Brown */
+  --theme-cream: #f4f3ef;
+  --theme-green: #8ccca0;
+  --theme-green-light: #a8ddb5;
+  --theme-green-dark: #6fb88a;
+  --theme-brown: #886458;
+  --theme-brown-light: #a07d72;
+  --theme-brown-dark: #6d4f45;
 }
 
 .dark {
@@ -210,5 +219,9 @@
 
   .animate-pulse-letter {
     animation: pulseLetter 1.5s ease-in-out infinite;
+  }
+
+  .section-bg-green {
+    background: rgba(140, 204, 160, 0.3);
   }
 }

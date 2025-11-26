@@ -26,7 +26,7 @@ const projectsData = [
     title: 'Restaurant Ordering System',
     description: 'Real-time order accuracy system using Raspberry Pi and custom hardware. Won 2nd place in UCSD MVP competition.',
     tags: ['IoT', 'Raspberry Pi', 'React', 'Hardware', 'Real-time'],
-    github: 'https://docs.google.com/presentation/d/1-sTj9QGiLtZRVMBctdWr9pBKAUZ4Sr2-bYvnh19LB0g/edit',
+    github: '',
     live: 'https://docs.google.com/presentation/d/1-sTj9QGiLtZRVMBctdWr9pBKAUZ4Sr2-bYvnh19LB0g/edit'
   },
   {
@@ -43,7 +43,7 @@ const projectsData = [
     description: 'Android app to track friends\' location and orientation with built-in messaging.',
     tags: ['Android', 'Java', 'SQL', 'Agile', 'Design Patterns'],
     github: 'https://github.com/CSE-110-Winter-2023/cse-110-project-cse110-team-16/tree/main',
-    live: 'https://github.com/CSE-110-Winter-2023/cse-110-project-cse110-team-16/tree/main'
+    live: ''
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const projectsData = [
     description: 'ML project implementing photometric stereo to estimate surface normals and albedo.',
     tags: ['Python', 'NumPy', 'Computer Vision', 'Linear Algebra'],
     github: 'https://github.com/Shree-G/Lambertian-Photometric-Stereo',
-    live: 'https://github.com/Shree-G/Lambertian-Photometric-Stereo'
+    live: ''
   },
   {
     id: 7,
@@ -59,7 +59,7 @@ const projectsData = [
     description: 'Rendering 3D images using Lambertian Reflectance Model and convolution operations.',
     tags: ['Python', 'SciPy', 'Computer Vision', '3D Rendering'],
     github: 'https://github.com/Shree-G/3D-Image-Rendering',
-    live: 'https://github.com/Shree-G/3D-Image-Rendering'
+    live: ''
   },
   {
     id: 8,
@@ -67,7 +67,7 @@ const projectsData = [
     description: 'Image classification using Bag of Words model, SIFT features, and KMeans clustering.',
     tags: ['Python', 'OpenCV', 'Scikit-learn', 'Machine Learning'],
     github: 'https://github.com/Shree-G/Image-Classification-using-Bag-of-Words',
-    live: 'https://github.com/Shree-G/Image-Classification-using-Bag-of-Words'
+    live: ''
   }
 ]
 
@@ -80,8 +80,8 @@ export default function Projects() {
   const checkScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
-      setCanScrollLeft(scrollLeft > 0)
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
+      setCanScrollLeft(scrollLeft > 10)
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 20)
     }
   }
 
@@ -103,7 +103,7 @@ export default function Projects() {
   }
 
   return (
-    <section ref={ref} id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={ref} id="projects" className="section-bg-green py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-12">
@@ -136,7 +136,7 @@ export default function Projects() {
               {projectsData.map((project) => (
                 <div
                   key={project.id}
-                  className="flex-shrink-0 w-full md:w-96 snap-start glass-effect rounded border border-border p-6 hover:border-accent/40 transition-all hover:shadow-sm"
+                  className="flex-shrink-0 w-full md:w-96 snap-start bg-[#f4f3ef] rounded border border-border p-6 hover:border-accent/40 transition-all hover:shadow-sm"
                 >
                   <h3 className="text-lg font-semibold text-foreground mb-2">{project.title}</h3>
                   <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
@@ -155,24 +155,28 @@ export default function Projects() {
 
                   {/* Links */}
                   <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-muted hover:bg-muted/70 text-foreground rounded transition-colors text-sm font-medium"
-                    >
-                      <Github size={16} />
-                      GitHub
-                    </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-accent/10 hover:bg-accent/20 text-accent rounded transition-colors text-sm font-medium"
-                    >
-                      <ExternalLink size={16} />
-                      Live
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 bg-muted hover:bg-muted/70 text-foreground rounded transition-colors text-sm font-medium"
+                      >
+                        <Github size={16} />
+                        GitHub
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 bg-accent/10 hover:bg-accent/20 text-accent rounded transition-colors text-sm font-medium"
+                      >
+                        <ExternalLink size={16} />
+                        Live
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}

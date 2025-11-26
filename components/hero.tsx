@@ -49,7 +49,7 @@ export default function Hero() {
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
                 I am a builder obsessed with the "last mile" of Artificial Intelligence. <br />
                 <br />
-                While models are getting smarter, the real challenge lies in integrating them into reliable, usable systems. My work focuses on bridging that gap—taking AI from a chat interface to an Agentic System that can reason, plan, and execute complex workflows autonomously. <br />
+                While models are getting smarter, the real challenge lies in integrating them into reliable, usable systems. My work focuses on bridging that gap - taking AI from a chat interface to an Agentic System that can reason, plan, and execute complex workflows autonomously. <br />
                 <br />
                 I build end-to-end applications because I believe the future isn't just about AI that talks, but AI that does.
               </p>
@@ -78,7 +78,7 @@ export default function Hero() {
             <div className={`relative w-full flex justify-center h-[500px] transition-all duration-700 delay-300 ${isInView ? 'opacity-100 transform-none' : 'opacity-0 translate-x-8'}`}>
               <motion.div
                 layout
-                className={`bg-background border border-border shadow-2xl overflow-hidden ${isOpen
+                className={`bg-[#8ccca0] shadow-2xl overflow-hidden ${isOpen
                   ? 'fixed inset-4 z-50 rounded-xl md:inset-10'
                   : 'relative w-full max-w-[500px] h-full rounded-xl cursor-pointer hover:shadow-xl transition-shadow'
                   }`}
@@ -110,6 +110,8 @@ export default function Hero() {
             </div>
           </div>
         </div>
+        {/* Decorative Separator */}
+        <div className="section-separator mt-12"></div>
       </section>
     </div>
   )

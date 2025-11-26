@@ -7,19 +7,20 @@ import ThinkingSpace from '@/components/thinking-space'
 import Projects from '@/components/projects'
 import Contact from '@/components/contact'
 import Footer from '@/components/footer'
+import FloatingChatButton from '@/components/floating-chat-button'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      {/* <Philosophy /> */}
-      <Anecdotes />
-      <Journey />
-      <ThinkingSpace />
       <Projects />
+      <Journey />
+      {/* <ThinkingSpace /> */}
+      <Anecdotes />
       <Contact />
       <Footer />
+      <FloatingChatButton />
     </main>
   )
 }
