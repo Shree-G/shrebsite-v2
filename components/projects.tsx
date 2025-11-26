@@ -11,7 +11,7 @@ const projectsData = [
     description: 'Full-stack conversational AI chatbot built from scratch using RAG to answer questions about my experience.',
     tags: ['Python', 'Next.js', 'LangChain', 'FastAPI', 'ChromaDB'],
     github: 'https://github.com/Shree-G/shrag',
-    live: 'https://shrebsite-v2.vercel.app'
+    live: 'https://shreeg.tech'
   },
   {
     id: 2,
