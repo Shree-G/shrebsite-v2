@@ -15,14 +15,21 @@ export default function Philosophy() {
             </h2>
 
             <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
-              I love deeply understanding a system to the extent where I understand how every single piece fits together. But if there's one thing I really want to devote my life to, it's to help disadvantaged people solve problems with technology.
+              There is a common misconception that to be great at your craft, you must sacrifice being good to the world, with the implication that someone who devotes their life to being a master at something often has to sacrifice kindness, loyalty and compassion to get ahead of the curve. However, I reject this notion. I want to be GREAT at being good - I want to become a master at solving systemic issues that plague our communities.
+              <br />
+              <br />
+              Then ... why software and AI?
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div className="grid md:grid-cols-3 gap-8 mt-4">
               {[
                 {
-                  title: 'Problem Solving',
-                  description: 'I love solving challenging problems or cracking difficult bugs and understanding exactly why the bug actually took place.'
+                  title: 'The Multiplier Effect:',
+                  description: `I chose software because it is the highest-leverage tool in human history. It is the only medium where a team of five can effectively serve five million. For decades, we scaled _logic_—automating deterministic tasks. Now, with LLMs, we are scaling _reasoning_. 
+
+This unlocks the ability to decouple "intelligence" from "biological time." Previously, high- quality reasoning—like medical diagnosis, legal counsel, or personalized tutoring—was a scarce resource limited by human hours. By digitizing reasoning, we can deploy personalized expertise to the "long tail" of societal problems that were previously too expensive or complex to address manually.
+
+I aim to build the infrastructure that allows this new form of leverage to reach the problems that need it most.`
                 },
                 {
                   title: 'Efficiency',
@@ -47,10 +54,10 @@ export default function Philosophy() {
 
           <div className="border-l-2 border-accent pl-8 py-6 my-20">
             <p className="text-2xl font-serif text-foreground italic leading-relaxed">
-              "I realized I could use this nerdy knowledge to help people streamline processes they didn't know they could."
+              "The best algorithms are the ones that know their limitations."
             </p>
             <footer className="text-muted-foreground text-sm mt-4">
-              — Shree Gopalakrishnan
+              — A lesson learned in production
             </footer>
           </div>
         </div>

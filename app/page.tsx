@@ -13,7 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <Philosophy />
+      {/* <Philosophy /> */}
       <Anecdotes />
       <Journey />
       <ThinkingSpace />

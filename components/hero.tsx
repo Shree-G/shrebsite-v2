@@ -42,12 +42,16 @@ export default function Hero() {
                   Shree<br />Gopalakrishnan
                 </h1>
                 <p className="text-lg md:text-xl text-accent font-medium">
-                  Full Stack Software Engineer
+                  Full Stack - Applied AI - Agentic AI
                 </p>
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Hi! I'm Shree Gopalakrishnan. If I had to summarize the reasons I do what I do, it would be because I love solving complex problems to actively help people. I love building systems that streamline and make processes efficient. I love solving challenging problems or cracking difficult bugs and understanding exactly why the bug actually took place.
+                I am a builder obsessed with the "last mile" of Artificial Intelligence. <br />
+                <br />
+                While models are getting smarter, the real challenge lies in integrating them into reliable, usable systems. My work focuses on bridging that gap—taking AI from a chat interface to an Agentic System that can reason, plan, and execute complex workflows autonomously. <br />
+                <br />
+                I build end-to-end applications because I believe the future isn't just about AI that talks, but AI that does.
               </p>
 
               <div className="flex items-center gap-4 pt-2">

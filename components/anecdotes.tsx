@@ -9,39 +9,65 @@ export default function Anecdotes() {
 
   const anecdotes = [
     {
-      title: 'Tech Obsession',
-      category: 'Origin Story',
-      excerpt: 'It started with YouTube channels like MKBHD and Linus Tech Tips. I memorized every smartphone spec for 5 years.',
-      fullStory: 'I think this all started with me being addicted to youtube channels like Marques Brownlee, Dave2D, Linus Tech Tips and others. I learnt so much about consumer technology that I knew all of the features every smartphone and laptop that came out had for a period of 4-5 years. I still remember coming back home from school and being so excited to watch the youtube livestream of the iPhone 6 launch. My first phone was an LG V20 with a cool secondary screen on top that would show you live activities. (They did dynamic islands before it was cool. Rest peacefully my love LG.)'
+      title: 'The Multiplier Effect',
+      category: 'Scale',
+      excerpt: '',
+      fullStory: `I chose software because it is the highest-leverage tool in human history. It is the only medium where a team of five can effectively serve five million. For decades, we scaled logic—automating deterministic tasks. Now, with LLMs, we are scaling reasoning. 
+
+This unlocks the ability to decouple "intelligence" from "biological time." Previously, high-quality reasoning—like medical diagnosis, legal counsel, or personalized tutoring—was a scarce resource limited by human hours. By digitizing reasoning, we can deploy personalized expertise to the "long tail" of societal problems that were previously too expensive or complex to address manually.
+
+I aim to build the infrastructure that allows this new form of leverage to reach the problems that need it most.`
     },
     {
-      title: 'The "Aha" Moment',
+      title: 'Lowering Barriers',
       category: 'Impact',
-      excerpt: 'Helping my grandparents send emails made me realize I could use my nerdy knowledge to help people.',
-      fullStory: 'Things changed when I realized I could use this nerdy knowledge to help people streamline processes they didn\'t know they could. It was small things like helping my grandparents send emails, or being the point person that family members asked when they had to buy a new device. But that feeling felt addictive, I loved being able to help people with the knowledge I had about the things I loved.'
+      excerpt: '',
+      fullStory: `I am fascinated by software's ability to solve complex problems in totality, from start to finish. My favorite case study is the lifecycle of an idea.
+
+Before the internet, an idea was geographically bound to your physical social bubble. The internet revolutionized this by solving the distribution problem—lowering the cost of sharing ideas with the world. This effectively democratized access - anyone could publish to the world.
+
+Now, AI is solving the creation problem by democratizing execution. It removes the friction between "thought" and "artifact." Advanced voice-to-text captures the raw input; LLMs battle-test the logic; generative pipelines craft the visual narrative. We are witnessing the cost of entry for creation drop to near-zero. It is infectiously exciting to build the systems that will remove these barriers across every other industry.`
     },
     {
-      title: 'Volunteering',
-      category: 'Service',
-      excerpt: 'Teaching tech literacy at a rehabilitation center taught me to take things back to the very basics.',
-      fullStory: 'Eventually, it turned into volunteering at the local rehabilitation center for recently unhoused people to teach them tech literacy. I expected most of these people to not know how to use advanced tools like Excel or Google Docs, but I soon realized that I neded to take things back to the very basics - starting with basic computer and phone literacy. Most of all, it was heartbreaking how many of these people didn\'t know how many resources they had access to from just their smart phone.'
+      title: 'Software Architecture',
+      category: 'Effectiveness',
+      excerpt: '',
+      fullStory: `I believe there is a profound difference between a "working prototype" and a "production-grade system." The former works under ideal conditions; the latter works under pressure.
+
+I approach social problems with the same rigor I apply to high-scale distributed systems. Good intentions are like pseudocode—they set the direction—but actual change requires accounting for scalability (can this help millions?), fault tolerance (what happens when things go wrong?), and maintainability (can this last without me?). 
+
+I view software engineering not just as a way to write code, but as a transferrable framework for building social solutions that don't just work once, but work reliably at scale. `
     }
   ]
 
   return (
     <section ref={ref} className="px-4 sm:px-6 bg-background lg:px-0 py-0">
+
+
       <div className="max-w-6xl mx-auto">
         <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="inline-block mb-8">
-            <span className="text-sm font-semibold text-accent tracking-widest uppercase">Stories & Lessons</span>
+            <span className="text-sm font-semibold text-accent tracking-widest uppercase">My Philosophy</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-8 leading-tight">
-            Real moments that shaped my approach
+            Why I do what I do
           </h2>
 
+          <div className="border-l-2 border-accent pl-8 py-6 my-20">
+            <p className="text-2xl font-serif text-foreground italic leading-relaxed">
+              "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world."
+            </p>
+            <footer className="text-muted-foreground text-sm mt-4">
+              — Archimedes
+            </footer>
+          </div>
+
           <p className="text-lg text-foreground/80 mb-12 leading-relaxed">
-            Engineering is personal. Here are stories that shaped how I think about building AI systems.
+            There is a common misconception that to be great at your craft, you must sacrifice being good to the world, with the implication that someone who devotes their life to being a master at something often has to sacrifice kindness, loyalty and compassion to get ahead of the curve. However, I reject this notion. I want to be GREAT at being good - I want to become a master at solving systemic issues that plague our communities.
+            <br />
+            <br />
+            Then ... why software and AI?
           </p>
 
           <div className="grid md:grid-cols-3 gap-4 mb-12">

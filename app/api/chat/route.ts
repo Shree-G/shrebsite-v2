@@ -17,11 +17,12 @@ export async function POST(req: NextRequest) {
   }
 
   const { message, session_id } = body
+  const finalSessionId = session_id || crypto.randomUUID();
   if (!message || typeof message !== 'string' || message.trim() === '') {
     return NextResponse.json({ error: 'message is required' }, { status: 400 })
   }
 
-  const backendUrl = process.env.BACKEND_CHAT_URL || 'http://127.0.0.1:8000/chat'
+  const backendUrl = process.env.BACKEND_CHAT_URL || 'https://shree-g-shrag.hf.space/chat'
 
   try {
     const resp = await fetch(backendUrl, {
@@ -29,7 +30,7 @@ export async function POST(req: NextRequest) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: message,
-        session_id: session_id || 'default-session'
+        session_id: finalSessionId
       }),
     })
 

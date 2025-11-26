@@ -7,27 +7,32 @@ export default function Journey() {
 
   const milestones = [
     {
-      year: '2020',
+      year: '2021',
       title: 'Started at UCSD',
-      description: 'Began my journey at the University of California, San Diego, majoring in Computer Science. Started exploring ML fundamentals.'
+      description: 'Began my journey at the University of California, San Diego, majoring in Computer Science.'
     },
     {
       year: '2022',
-      title: 'Software Engineering Intern',
-      description: 'Gained industry experience building production-grade applications and learning about the gap between research and practice.'
-    },
-    {
-      year: '2023',
-      title: 'Machine Learning Intern',
-      description: 'Deepened expertise in fine-tuning techniques and RAG systems, working on real-world AI challenges.'
+      title: 'Machine Learning Internship',
+      description: 'Built a KNN-based resume classifier, that classified over 450+ resumes (and counting!) into best-fit jobs.'
     },
     {
       year: '2024',
-      title: 'Graduated from UCSD',
-      description: 'Earned my Bachelor\'s degree in Computer Science, capping off 4 years of intense learning and building.'
+      title: 'Machine Learning Internship',
+      description: 'Built a weekly call volume forecaster, achieving 9% MAPE to improve staffing decisions for 500+ support agents.'
     },
     {
-      year: '2024 - Present',
+      year: '2024',
+      title: 'Software Engineering Internship',
+      description: 'Architected 15+ relational schemas and refactored 10+ front end components for NoSQL to PostgreSQL migration.'
+    },
+    {
+      year: '2025',
+      title: 'Graduated from UCSD!',
+      description: 'Graduated from UCSD as a computer science major!'
+    },
+    {
+      year: '2025 - Present',
       title: 'Full Stack Engineer @ iFrog',
       description: 'Joined iFrog Marketing Solutions as a Full Stack Software Engineer, building end-to-end AI systems and web applications.'
     }

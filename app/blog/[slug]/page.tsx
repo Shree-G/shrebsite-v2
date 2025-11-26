@@ -73,7 +73,34 @@ Thanks for stopping by!
             </div>
 
             <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-serif prose-headings:font-bold prose-a:text-accent prose-a:no-underline hover:prose-a:underline">
-              <ReactMarkdown>{post.content}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  h1: ({ node, ...props }) => <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />,
+                  h2: ({ node, ...props }) => <h2 className="text-3xl font-bold mt-6 mb-3" {...props} />,
+                  h3: ({ node, ...props }) => <h3 className="text-2xl font-semibold mt-4 mb-2" {...props} />,
+                  p: ({ node, ...props }) => <p className="mb-4 leading-relaxed" {...props} />,
+                  ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 ml-4" {...props} />,
+                  ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 ml-4" {...props} />,
+                  li: ({ node, ...props }) => <li className="mb-2" {...props} />,
+                  a: ({ node, ...props }) => <a className="text-accent underline underline-offset-2 hover:text-secondary" {...props} />,
+                  code: ({ node, className, children, ...props }) => {
+                    const match = /language-(\w+)/.exec(className || '')
+                    return match ? (
+                      <div className="rounded-md bg-muted p-4 my-4 overflow-x-auto">
+                        <code className={className} {...props}>
+                          {children}
+                        </code>
+                      </div>
+                    ) : (
+                      <code className="bg-muted px-2 py-1 rounded text-sm font-mono" {...props}>
+                        {children}
+                      </code>
+                    )
+                  }
+                }}
+              >
+                {post.content}
+              </ReactMarkdown>
             </div>
           </article>
         </div>
