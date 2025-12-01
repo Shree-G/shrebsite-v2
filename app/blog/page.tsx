@@ -5,6 +5,16 @@ import Link from 'next/link'
 const blogPosts = [
   {
     id: 1,
+    title: 'Building "Shrag": From Concept to a Production-Grade Personal RAG Chatbot',
+    excerpt: 'The engineering journey of building a full-stack Retrieval-Augmented Generation (RAG) system, from a blank Python script to a production deployment.',
+    date: 'December 1, 2024',
+    author: 'Shree Gopalakrishnan',
+    readTime: '8 min read',
+    category: 'Engineering',
+    slug: 'building-shrag'
+  },
+  {
+    id: 2,
     title: 'Welcome to My Personal Website',
     excerpt: 'A look into why I built this site, my philosophy on technology, and what you can expect to find here.',
     date: 'November 21, 2024',
