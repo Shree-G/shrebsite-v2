@@ -9,8 +9,8 @@ const _lora = Lora({ subsets: ['latin'], weight: ["400", "500", "600", "700"] })
 const _ibmPlexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: ["100", "200", "300", "400", "500", "600", "700"] })
 
 export const metadata: Metadata = {
-  title: 'AI Engineer - Personal Portfolio',
-  description: 'Explore my AI engineering projects, research, and professional journey',
+  title: 'Shree Gopalakrishnan',
+  description: 'Shree G Personal Portfolio - Full Stack Software Engineer with AI Expertise',
   generator: 'v0.app',
   icons: {
     icon: '/prof-photo.JPG',
