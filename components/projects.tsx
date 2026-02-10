@@ -28,47 +28,47 @@ const projectsData = [
     tags: ['IoT', 'Raspberry Pi', 'React', 'Hardware', 'Real-time'],
     github: '',
     live: 'https://docs.google.com/presentation/d/1-sTj9QGiLtZRVMBctdWr9pBKAUZ4Sr2-bYvnh19LB0g/edit'
-  },
-  {
-    id: 4,
-    title: "Shree's Pokédex",
-    description: 'Responsive web app to browse and search Pokémon data using the PokeAPI.',
-    tags: ['React', 'Vite', 'JavaScript', 'CSS3', 'REST API'],
-    github: 'https://github.com/Shree-G/pokedex',
-    live: 'https://shreespokedex.netlify.app/'
-  },
-  {
-    id: 5,
-    title: 'Social Compass App',
-    description: 'Android app to track friends\' location and orientation with built-in messaging.',
-    tags: ['Android', 'Java', 'SQL', 'Agile', 'Design Patterns'],
-    github: 'https://github.com/CSE-110-Winter-2023/cse-110-project-cse110-team-16/tree/main',
-    live: ''
-  },
-  {
-    id: 6,
-    title: 'Lambertian Photometric Stereo',
-    description: 'ML project implementing photometric stereo to estimate surface normals and albedo.',
-    tags: ['Python', 'NumPy', 'Computer Vision', 'Linear Algebra'],
-    github: 'https://github.com/Shree-G/Lambertian-Photometric-Stereo',
-    live: ''
-  },
-  {
-    id: 7,
-    title: '3D Image Rendering',
-    description: 'Rendering 3D images using Lambertian Reflectance Model and convolution operations.',
-    tags: ['Python', 'SciPy', 'Computer Vision', '3D Rendering'],
-    github: 'https://github.com/Shree-G/3D-Image-Rendering',
-    live: ''
-  },
-  {
-    id: 8,
-    title: 'Image Classification (BoW)',
-    description: 'Image classification using Bag of Words model, SIFT features, and KMeans clustering.',
-    tags: ['Python', 'OpenCV', 'Scikit-learn', 'Machine Learning'],
-    github: 'https://github.com/Shree-G/Image-Classification-using-Bag-of-Words',
-    live: ''
   }
+  // {
+  //   id: 4,
+  //   title: "Shree's Pokédex",
+  //   description: 'Responsive web app to browse and search Pokémon data using the PokeAPI.',
+  //   tags: ['React', 'Vite', 'JavaScript', 'CSS3', 'REST API'],
+  //   github: 'https://github.com/Shree-G/pokedex',
+  //   live: 'https://shreespokedex.netlify.app/'
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Social Compass App',
+  //   description: 'Android app to track friends\' location and orientation with built-in messaging.',
+  //   tags: ['Android', 'Java', 'SQL', 'Agile', 'Design Patterns'],
+  //   github: 'https://github.com/CSE-110-Winter-2023/cse-110-project-cse110-team-16/tree/main',
+  //   live: ''
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Lambertian Photometric Stereo',
+  //   description: 'ML project implementing photometric stereo to estimate surface normals and albedo.',
+  //   tags: ['Python', 'NumPy', 'Computer Vision', 'Linear Algebra'],
+  //   github: 'https://github.com/Shree-G/Lambertian-Photometric-Stereo',
+  //   live: ''
+  // },
+  // {
+  //   id: 7,
+  //   title: '3D Image Rendering',
+  //   description: 'Rendering 3D images using Lambertian Reflectance Model and convolution operations.',
+  //   tags: ['Python', 'SciPy', 'Computer Vision', '3D Rendering'],
+  //   github: 'https://github.com/Shree-G/3D-Image-Rendering',
+  //   live: ''
+  // },
+  // {
+  //   id: 8,
+  //   title: 'Image Classification (BoW)',
+  //   description: 'Image classification using Bag of Words model, SIFT features, and KMeans clustering.',
+  //   tags: ['Python', 'OpenCV', 'Scikit-learn', 'Machine Learning'],
+  //   github: 'https://github.com/Shree-G/Image-Classification-using-Bag-of-Words',
+  //   live: ''
+  // }
 ]
 
 export default function Projects() {

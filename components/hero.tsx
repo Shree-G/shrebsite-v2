@@ -47,11 +47,7 @@ export default function Hero() {
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                I am a builder obsessed with the "last mile" of Artificial Intelligence. <br />
-                <br />
-                While models are getting smarter, the real challenge lies in integrating them into reliable, usable systems. My work focuses on bridging that gap - taking AI from a chat interface to an Agentic System that can reason, plan, and execute complex workflows autonomously. <br />
-                <br />
-                I build end-to-end applications because I believe the future isn't just about AI that talks, but AI that does.
+              Full-stack software engineer building production systems across the stack - from backend data pipelines and APIs to frontend customer-facing dashboards. I bring hands-on AI expertise to full-stack work, having shipped LLM integrations, forecasting models, and agentic systems in production environments.
               </p>
 
               <div className="flex items-center gap-4 pt-2">

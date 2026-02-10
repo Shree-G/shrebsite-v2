@@ -37,14 +37,14 @@ export default function Navbar() {
             <Link href="/#contact" className="text-foreground hover:text-accent transition-colors text-sm font-medium">
               Contact
             </Link>
-            <a
+            {/* <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium hover:text-accent transition-colors"
             >
               Resume
-            </a>
+            </a> */}
           </div>
 
           {/* Quick Access Buttons */}

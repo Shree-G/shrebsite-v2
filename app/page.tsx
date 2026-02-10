@@ -17,7 +17,7 @@ export default function Home() {
       <Projects />
       <Journey />
       {/* <ThinkingSpace /> */}
-      <Anecdotes />
+      {/* <Anecdotes /> */}
       <Contact />
       <Footer />
       <FloatingChatButton />
